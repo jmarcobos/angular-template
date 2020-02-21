@@ -1,0 +1,74 @@
+.sidenav {
+    background-color:  grey;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    -moz-transition: all linear 0.5s;
+    -o-transition: all linear 0.5s;
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+}
+
+.sidenav.open {
+    width: 450px;
+}
+
+.sidenav.close {
+    width: 0px;
+    overflow: hidden;
+}
+
+.sidenav .container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100%;
+    background-color: #333;
+
+    .header {
+        flex-grow: auto;
+        height: 50px;
+        background-color: #000;
+    }
+
+    .body {
+        flex-grow: 1;
+    }
+
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-inline {
+    flex: 1 0 auto;
+}
+
+.right {
+    float: right;
+} 
+
+.grey {
+    background-color: #333;
+}
+
+.center {
+    text-align: center;
+}
+
+.padding-15 {
+    padding: 15px;
+}
+
+.padding-0-20 {
+    padding: 0 20px;
+}
+
+.logo {
+    height: 50px;
+}
+

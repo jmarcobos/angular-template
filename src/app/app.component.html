@@ -1,4 +1,32 @@
-<!-- NG-ZORRO -->
-<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">
-  <img height="300" src="https://img.alicdn.com/tfs/TB1X.qJJgHqK1RjSZFgXXa7JXXa-89-131.svg">
-</a>
+<div class="wrapper">
+  <header>
+    <div class="flex-row">
+      <div class="flex-item flex-start">
+        <img class="logo" src="assets/logo-universite.svg">
+        <button class="btn-white" (click)="gestionBuscador()"><i class="black" nz-icon nzType="appstore" nzTheme="outline"></i></button>
+        <button class="btn-white" (click)="gestionBuscador()"><i class="black" nz-icon nzType="search" nzTheme="outline"></i></button>
+
+      </div>
+      <div class="flex-item flex-end">
+        <button class="btn-black"><i class="white" nz-icon nzType="bell" nzTheme="outline"></i></button>
+        <button class="btn-black"><i class="red" nz-icon nzType="poweroff" nzTheme="outline"></i></button>
+      </div>
+    </div>
+    <div *ngIf="buscadorVisible" class="overlay" (click)="buscadorVisible = !buscadorVisible"></div>
+    <div class="sidenav" [ngClass]="buscadorVisible ? 'open' : 'close'">
+      <div class="flex-column" *ngIf="buscadorVisible">
+        <div class="flex-item">
+          LOGO
+          <i nz-icon nzType="close" nzTheme="outline" style="color: white" (click)="gestionBuscador()"></i> 
+        </div>
+        <div class="flex-item">
+          <input type="text" style="width: 300px" class="form-control w-full ng-pristine ng-valid ng-touched" placeholder="Buscar en todas mis aplicaciones" autofocus="">   
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <footer>FOOTER</footer>
+</div>

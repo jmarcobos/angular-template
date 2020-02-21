@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less']
+  selector: 'app-initial',
+  templateUrl: './initial.component.html',
+  styleUrls: ['./initial.component.less']
 })
-export class AppComponent implements OnInit {
-  
-  public title = 'Universite';
+export class InitialComponent implements OnInit {
+
   public buscadorVisible: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    this.buscadorVisible = false;
+    this.buscadorVisible = true;
   }
 
   gestionBuscador() {
     this.buscadorVisible = !this.buscadorVisible;
   }
+
 }
