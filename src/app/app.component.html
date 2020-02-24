@@ -3,24 +3,39 @@
     <div class="flex-row">
       <div class="flex-item flex-start">
         <img class="logo" src="assets/logo-universite.svg">
-        <button class="btn-white" (click)="gestionBuscador()"><i class="black" nz-icon nzType="appstore" nzTheme="outline"></i></button>
-        <button class="btn-white" (click)="gestionBuscador()"><i class="black" nz-icon nzType="search" nzTheme="outline"></i></button>
-
+        <button class="btn-white desktop" (click)="gestionBuscador()"><i class="black" nz-icon nzType="appstore" nzTheme="outline"></i></button>
+        <button class="btn-white desktop" (click)="gestionBuscador()"><i class="black" nz-icon nzType="search" nzTheme="outline"></i></button>
       </div>
       <div class="flex-item flex-end">
+        <button class="btn-black mobile" (click)="gestionBuscador()"><i class="white" nz-icon nzType="appstore" nzTheme="outline"></i></button>
         <button class="btn-black"><i class="white" nz-icon nzType="bell" nzTheme="outline"></i></button>
-        <button class="btn-black"><i class="red" nz-icon nzType="poweroff" nzTheme="outline"></i></button>
+        <button class="btn-black desktop"><i class="red" nz-icon nzType="poweroff" nzTheme="outline"></i></button>
+        <button class="btn-black mobile" (click)="gestionMenu()"><i class="white" nz-icon nzType="menu" nzTheme="outline"></i></button>
       </div>
     </div>
-    <div *ngIf="buscadorVisible" class="overlay" (click)="buscadorVisible = !buscadorVisible"></div>
+    <div class="flex-column menu" [ngClass]="menuVisible ? 'open' : 'close'">
+      <div class="flex-item">
+        <button class="btn-black"><i class="white" nz-icon nzType="user" nzTheme="outline"></i>Usuario</button>
+      </div>
+      <div class="flex-item">
+        <button class="btn-black"><i class="white" nz-icon nzType="setting" nzTheme="outline"></i>Configuración</button>
+      </div>
+      <div class="flex-item">
+        <button class="btn-black"><i class="red" nz-icon nzType="poweroff" nzTheme="outline"></i>Cerrar sesión</button>
+      </div>
+    </div>
+    <div class="overlay" *ngIf="buscadorVisible" (click)="buscadorVisible = !buscadorVisible"></div>
     <div class="sidenav" [ngClass]="buscadorVisible ? 'open' : 'close'">
       <div class="flex-column" *ngIf="buscadorVisible">
-        <div class="flex-item">
-          LOGO
-          <i nz-icon nzType="close" nzTheme="outline" style="color: white" (click)="gestionBuscador()"></i> 
+        <div class="flex-item flex-start">
+          <img class="logo" src="assets/logo-universite.svg">
+        <div class="flex-item flex-end"></div>
+          <button class="btn-grey" (click)="gestionBuscador()"><i class="white" nz-icon nzType="close" nzTheme="outline" (click)="gestionBuscador()"></i></button>
         </div>
+      </div>
+      <div class="flex-column" *ngIf="buscadorVisible">
         <div class="flex-item">
-          <input type="text" style="width: 300px" class="form-control w-full ng-pristine ng-valid ng-touched" placeholder="Buscar en todas mis aplicaciones" autofocus="">   
+          <input type="text" class="buscador" placeholder="Buscar en todas mis aplicaciones" autofocus="">   
         </div>
       </div>
     </div>
