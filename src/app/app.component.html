@@ -3,39 +3,78 @@
     <div class="flex-row">
       <div class="flex-item flex-start">
         <img class="logo" src="assets/logo-universite.svg">
-        <button class="btn-white desktop" (click)="gestionBuscador()"><i class="black" nz-icon nzType="appstore" nzTheme="outline"></i></button>
-        <button class="btn-white desktop" (click)="gestionBuscador()"><i class="black" nz-icon nzType="search" nzTheme="outline"></i></button>
+        <button class="btn-white desktop" (click)="gestionBuscador()"><i class="black fa fa-th"></i></button>
+        <button class="btn-white desktop" (click)="gestionBuscador()"><i class="black fa fa-search"></i></button>
       </div>
       <div class="flex-item flex-end">
-        <button class="btn-black mobile" (click)="gestionBuscador()"><i class="white" nz-icon nzType="appstore" nzTheme="outline"></i></button>
-        <button class="btn-black"><i class="white" nz-icon nzType="bell" nzTheme="outline"></i></button>
-        <button class="btn-black desktop"><i class="red" nz-icon nzType="poweroff" nzTheme="outline"></i></button>
-        <button class="btn-black mobile" (click)="gestionMenu()"><i class="white" nz-icon nzType="menu" nzTheme="outline"></i></button>
+        <img class="foto desktop" src="{{foto}}" />
+        <button class="btn-black mobile" (click)="gestionBuscador()"><i class="white fa fa-th"></i></button>
+        <button class="btn-black"><i class="white fa fa-bell"></i></button>
+        <button class="btn-black desktop"><i class="red fa fa-power-off"></i></button>
+        <button class="btn-black mobile" (click)="gestionMenu()"><i class="white fa fa-bars"></i></button>
       </div>
     </div>
     <div class="flex-column menu" [ngClass]="menuVisible ? 'open' : 'close'">
       <div class="flex-item">
-        <button class="btn-black"><i class="white" nz-icon nzType="user" nzTheme="outline"></i>Usuario</button>
+        <button class="btn-black">
+          <i class="white fa fa-user"></i><span *ngIf="configuracion">{{configuracion.NombrePersona}}</span>
+        </button>
       </div>
       <div class="flex-item">
-        <button class="btn-black"><i class="white" nz-icon nzType="setting" nzTheme="outline"></i>Configuración</button>
+        <button class="btn-black"><i class="white fa fa-cog"></i>Configuración</button>
       </div>
       <div class="flex-item">
-        <button class="btn-black"><i class="red" nz-icon nzType="poweroff" nzTheme="outline"></i>Cerrar sesión</button>
+        <button class="btn-black"><i class="red fa fa-power-off"></i>Cerrar sesión</button>
       </div>
     </div>
     <div class="overlay" *ngIf="buscadorVisible" (click)="buscadorVisible = !buscadorVisible"></div>
     <div class="sidenav" [ngClass]="buscadorVisible ? 'open' : 'close'">
       <div class="flex-column" *ngIf="buscadorVisible">
-        <div class="flex-item flex-start">
+        <div class="flex-item flex-start black">
           <img class="logo" src="assets/logo-universite.svg">
-        <div class="flex-item flex-end"></div>
-          <button class="btn-grey" (click)="gestionBuscador()"><i class="white" nz-icon nzType="close" nzTheme="outline" (click)="gestionBuscador()"></i></button>
+        <div class="flex-item flex-end black"></div>
+          <button class="btn-grey" (click)="gestionBuscador()"><i class="white fa fa-times" (click)="gestionBuscador()"></i></button>
         </div>
       </div>
       <div class="flex-column" *ngIf="buscadorVisible">
         <div class="flex-item">
-          <input type="text" class="buscador" placeholder="Buscar en todas mis aplicaciones" autofocus="">   
+          <input type="text" class="buscador" placeholder="Buscar en todas mis aplicaciones">   
+        </div>
+        <div class="flex-item">
+          <div class="prueba">
+            <span [ngClass]="optionActiva == 'desktop' ? 'options-active' : 'options'" (click)="gestionSidenav('desktop')">ESCRITORIO ({{totalEscritorio}})</span>
+          </div>
+          <div class="prueba">
+            <span [ngClass]="optionActiva == 'all' ? 'options-active' : 'options'" (click)="gestionSidenav('all')">TODAS</span>
+          </div>
+        </div>
+        <div class="scrollable" *ngIf="optionActiva == 'all' && totalEscritorio">
+          <div class="flex-item" *ngFor="let item of aplicaciones">
+            <div class="flex-column margin-top">
+              <div class="flex-item">
+                <div class="headAmbito">
+                  <span class="headColor" [ngStyle]="{'background-color': item.Color}"></span>
+                  <span class="headTitle">{{item.Categoria.toUpperCase()}}</span>
+                </div>
+              </div>
+              <div class="flex-item cursor" *ngFor="let app of item.Aplicaciones">
+                <div class="aplicacion">
+                  <i class="icono {{app.Icono}}"></i><span class="title">{{app.Titulo}}</span>             
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scrollable" *ngIf="optionActiva == 'desktop' && this.totalEscritorio">
+          <div class="flex-row">
+            <div class="flex-item" *ngFor="let item of escritorio.AplicacionesEscritorio">
+              <div class="appbox" [ngStyle]="{'background-color': item.Categoria.Color}">
+                <i class="icono {{item.Icono}}"></i>
+                <span>{{item.Titulo}}</span>
+                <span class="tooltip">{{item.Descripcion}}</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -94,6 +94,12 @@
           padding: 0 20px;
         }
 
+        .foto {
+          height: 46px;
+          border-radius: 4px;
+          margin: 2px 10px;
+        }
+
       }
 
     }
@@ -105,12 +111,12 @@
     .flex-start {
       justify-content: flex-start;
     }
-    
+  
     .sidenav {
     
       background-color: #333333;
-      height: 100%;
       position: fixed;
+      height: 100%;
       top: 0;
       left: 0;
       -moz-transition: all linear 0.5s;
@@ -129,13 +135,64 @@
       .flex-column {
     
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+
+        .scrollable{
+          height: calc(100vh - 127px);
+          overflow-y: scroll;
+          overflow-x: hidden;
+
+          .cursor {
+
+            color: white;
+
+            &.cursor:hover {
+              cursor: pointer;
+              color: white;
+              opacity: 0.3;
+              background-image: linear-gradient(to right,#333333, #747272, #747272, #333333);
+            }
+
+            .aplicacion {
+              margin: 8px 0 8px 45px;
+  
+              .title {
+                color: white;
+                margin-left: 10px;
+              }
+  
+              .icono {
+                font-size: 25px;
+                width: 40px;
+                height: 40px;
+                color: white;
+                background-color: #757575;
+                text-align: center;
+                padding-top: 8px;
+  
+              }
+  
+            }         
+
+          }
+
+          /* .flex-item {
+            .margin-top {
+              .flex-item {
+                margin-top: 15px;
+                &:first-child { 
+                  margin-top: 0px;
+                }
+              }
+            } 
+          
+          }*/
+
+        }
     
         .flex-item {
     
-          display: flex;
           flex: 1;
-          width: 100%;
 
           .logo {
             height: 50px;
@@ -163,24 +220,141 @@
             border: 1px;
           }
 
+          .headAmbito {
+
+            display: flex;
+            padding: 0 0 5px 20px;
+            width: 100%;
+  
+            .headColor {
+              width: 5px;
+            }
+
+            .headTitle {
+              margin: 0 0 0 20px;
+              color:white;
+            }
+  
+          }
+
+          .prueba { 
+            margin: 0 0 20px 20px;
+            padding: 10px;
+            color: white;
+
+            &.prueba:hover {
+              background-color: rgb(36, 36, 36);
+            }
+
+            .options {
+             
+              position: relative;
+              cursor: pointer;
+            }
+
+            .options-active {
+              color: white;
+              position: relative;
+              cursor: pointer;
+
+              &::after {
+                content: " ";
+                padding: 1px;
+                width: 100%;
+                position: absolute;
+                top: 22px;
+                left: 0px;
+                background-color: white;
+              }
+
+            }
+
+          }
+
         }
 
         .flex-end {
           justify-content: flex-end;
-          background-color: black;
         }
     
         .flex-start {
           justify-content: flex-start;
+        }
+
+        .black {
           background-color: black;
         }
     
+      }
+
+      .flex-row {
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap; 
+        width: 100%;     
+      
+        .flex-item {
+
+          flex: 1;
+      
+          .appbox {
+
+            margin: 0 0 20px 20px;
+            padding: 15px 0 15px 0;
+            text-align: center;
+            color: white;
+            border: 1px;
+            width: 190px;
+            font-size: 16px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #333333;
+            border-radius: 2px;
+            position: relative;
+
+            .tooltip {
+              visibility: hidden;
+              width: 170px;
+              background-color: black;
+              color: #fff;
+              text-align: center;
+              padding: 5px 5px;
+              border-radius: 6px;
+              font-size: 11px;
+              position: absolute;
+              top: 76px;
+              left: 10px;
+              z-index: 1; 
+
+            }
+
+            &.appbox:hover{
+
+              .tooltip {
+                visibility: visible;
+              }
+
+              border-style: solid;
+              border-width: 1px;
+              border-color: grey;
+            }
+
+            .icono {
+              width: 100%
+            }
+
+          }
+
+        }
+
       }
     
     }
     
     .menu {
     
+      display: block;
       width: 100%;
       -webkit-transition: all 0.2s ease-in-out 0s;
       -moz-transition: all 0.2s ease-in-out 0s;
@@ -222,7 +396,6 @@
 
 }
 
-
 @media (min-width: 768px) {
   .wrapper {
 
@@ -247,7 +420,7 @@
             &:hover {
               background-color: #16232D;
             }
-            
+
           }
 
           .btn-black {
@@ -260,7 +433,11 @@
 
         }
 
-      }      
+      } 
+      
+      .menu {
+        display: none;
+      }
 
       .overlay {
         position: fixed;
@@ -284,10 +461,7 @@
         }
 
         .flex-column {
-      
-          display: flex;
-          flex-direction: row;
-      
+            
           .flex-item {
 
             .btn-grey {
@@ -307,4 +481,41 @@
     }
 
   }
+}
+
+/* Scroll */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-topleft: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #BBBBBB;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-topleft: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
 }

@@ -10,6 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
 import { InitialComponent } from './pages/initial/initial.component';
+import { InitialService } from './services/initial.service';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 registerLocaleData(es);
 
@@ -24,9 +27,13 @@ registerLocaleData(es);
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: es_ES }],
+  providers: [
+    { provide: NZ_I18N, useValue: es_ES },
+    InitialService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
