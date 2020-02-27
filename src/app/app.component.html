@@ -3,12 +3,12 @@
     <div class="flex-row">
       <div class="flex-item flex-start">
         <img class="logo" src="assets/logo-universite.svg">
-        <button class="btn-white desktop" (click)="gestionBuscador()"><i class="black fa fa-th"></i></button>
-        <button class="btn-white desktop" (click)="gestionBuscador()"><i class="black fa fa-search"></i></button>
+        <button class="btn-white desktop" (click)="gestionBuscador('desktop')"><i class="black fa fa-th"></i></button>
+        <button class="btn-white desktop" (click)="gestionBuscador('all')"><i class="black fa fa-search"></i></button>
       </div>
       <div class="flex-item flex-end">
         <img class="foto desktop" src="{{foto}}" />
-        <button class="btn-black mobile" (click)="gestionBuscador()"><i class="white fa fa-th"></i></button>
+        <button class="btn-black mobile" (click)="gestionBuscador('desktop')"><i class="white fa fa-th"></i></button>
         <button class="btn-black"><i class="white fa fa-bell"></i></button>
         <button class="btn-black desktop"><i class="red fa fa-power-off"></i></button>
         <button class="btn-black mobile" (click)="gestionMenu()"><i class="white fa fa-bars"></i></button>
@@ -38,7 +38,7 @@
       </div>
       <div class="flex-column" *ngIf="buscadorVisible">
         <div class="flex-item">
-          <input type="text" class="buscador" placeholder="Buscar en todas mis aplicaciones">   
+          <input type="text" class="buscador" placeholder="Buscar en todas mis aplicaciones" (click)="gestionSidenav('all')" (keyup)="buscar($event)">   
         </div>
         <div class="flex-item">
           <div class="prueba">
