@@ -1,11 +1,7 @@
-@height-footer: 80px;
-
 @color-blanco: #FFFFFF;
 @color-negro: #000000;
-
 @color-footer: #EDF1F2;
 @color-links: #0071BC;
-
 @color-twitter: #92CDDC;
 @color-facebook: #0071BC;
 @color-youtube: #C1272D;
@@ -25,100 +21,6 @@
   main {
     flex-grow: 1;
     flex-shrink: 0;
-  }
-
-  footer {
-    flex-shrink: 0;
-    height: 60px;
-
-      align-content: flex-start;
-      align-items: center;
-      background-color: @color-footer;
-      border-top: 1px solid #DEE5E7;
-      font-family: 'Source Sans Pro', sans-serif, Helvetica, Arial;
-      font-size: 14px;
-      height: @height-footer;
-      padding: 15px;
-    
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    
-      a {
-        color: @color-links;
-        cursor: pointer;
-        text-decoration: none;
-      }
-    
-      > div {
-        flex: 1 0 auto;
-      }
-    
-      /* Sections */
-      .logos {
-    
-      }
-    
-      .links {
-        text-align: center;
-      }
-    
-      .social-media {
-        display: flex;
-        justify-content: flex-end;
-        font-size: 12px;
-        line-height: 2.5;
-    
-        a {
-          border: 1px solid transparent;
-          border-radius: 2px;
-          height: 30px;
-          margin-right: 3px;
-          text-align: center;
-          width: 30px;
-    
-          /*
-          &:hover {
-            font-size: 17px;
-          }
-          */
-    
-          &.btn-twitter {
-            background-color: @color-twitter;
-            color: @color-blanco;
-          }
-          &.btn-facebook {
-            background-color: @color-facebook;
-            color: @color-blanco;
-          }
-          &.btn-youtube {
-            background-color: @color-youtube;
-            color: @color-blanco;
-          }
-          &.btn-linkedin {
-            background-color: @color-linkedin;
-            color: @color-blanco;
-          }
-          &.btn-instagram {
-            background-color: @color-instagram;
-            color: @color-blanco;
-          }
-          &.btn-pinterest {
-            background-color: @color-pinterest;
-            color: @color-blanco;
-          }
-          &.btn-android {
-            background-color: @color-android;
-            color: @color-blanco;
-          }
-          &.btn-apple {
-            background-color: @color-apple;
-            color: @color-negro;
-          }
-        }
-      }
-
   }
 
   header {
@@ -155,6 +57,30 @@
             margin-left: 3px;
             background-color: #F0F3F4;
             color: black;
+            position: relative;
+
+            .tooltip {
+              visibility: hidden;
+              width: 200%;
+              background-color: black;
+              color: #fff;
+              text-align: center;
+              padding: 5px 5px;
+              border-radius: 6px;
+              font-size: 11px;
+              position: absolute;
+              top: 52px;
+              left: -24px;
+              z-index: 1;
+            }
+
+            &.btn-white:hover {
+
+              .tooltip {
+                visibility: visible;
+              }
+
+            }
 
             &.btn-white:active {
               outline: 0;
@@ -169,6 +95,49 @@
             margin-left: 3px;
             background-color: black;
             color: white;
+            position: relative;
+
+            .tooltip {
+              visibility: hidden;
+              width: 100px;
+              background-color: black;
+              color: #fff;
+              text-align: center;
+              padding: 5px 5px;
+              border-radius: 6px;
+              font-size: 11px;
+              position: absolute;
+              top: 52px;
+              left: -24px;
+              z-index: 1;
+            }
+
+            .tooltip-corner {
+              visibility: hidden;
+              width: 100px;
+              background-color: black;
+              color: #fff;
+              text-align: center;
+              padding: 5px 5px;
+              border-radius: 6px;
+              font-size: 11px;
+              position: absolute;
+              top: 52px;
+              left: -58px;
+              z-index: 1;
+            }
+
+            &.btn-black:hover {
+
+              .tooltip {
+                visibility: visible;
+              }
+
+              .tooltip-corner {
+                visibility: visible;
+              }
+
+            }
 
             &.btn-black:active {
               outline: 0;
@@ -184,15 +153,75 @@
 
           }
 
-          .logo {
-            height: 50px;
-            padding: 0 20px;
+          .inicio {
+
+            .logo {
+
+              height: 50px;
+              padding: 0 20px;
+
+            }
+  
+            .tooltip {
+              visibility: hidden;
+              width: 120px;
+              background-color: black;
+              color: #fff;
+              text-align: center;
+              padding: 5px 5px;
+              border-radius: 6px;
+              font-size: 11px;
+              position: absolute;
+              top: 52px;
+              left: 45px;
+              z-index: 1;
+            }
+
+            &.inicio:hover {
+
+              .tooltip {
+                visibility: visible;
+              }
+
+            }
+
           }
 
-          .foto {
-            height: 46px;
-            border-radius: 4px;
-            margin: 2px 10px;
+          .usuario {
+
+            position: relative;
+
+            .foto {
+
+              height: 46px;
+              border-radius: 4px;
+              margin: 2px 10px;
+
+            }
+
+            .tooltip {
+              visibility: hidden;
+              width: 120px;
+              background-color: black;
+              color: #fff;
+              text-align: center;
+              padding: 5px 5px;
+              border-radius: 6px;
+              font-size: 11px;
+              position: absolute;
+              top: 52px;
+              left: -30px;
+              z-index: 1;
+            }
+
+            &.usuario:hover {
+
+              .tooltip {
+                visibility: visible;
+              }
+
+            }
+
           }
 
         }
@@ -324,12 +353,12 @@
             color: white;
 
             .options {
-
               position: relative;
               cursor: pointer;
             }
 
             .options-active {
+
               color: white;
               position: relative;
               cursor: pointer;
@@ -399,7 +428,6 @@
                       top: 70px;
                       left: calc(25%);
                       z-index: 1;
-
                     }
 
                     &.appbox:hover {
@@ -411,6 +439,7 @@
                       border-style: solid;
                       border-width: 1px;
                       border-color: grey;
+
                     }
 
                     .icono {
@@ -474,7 +503,6 @@
                     background-color: #757575;
                     text-align: center;
                     padding-top: 8px;
-
                   }
 
                 }
@@ -497,6 +525,39 @@
 
       }
 
+    }
+
+  }
+
+  footer {
+
+    flex-shrink: 0;
+    height: 80px;
+    
+    align-content: flex-start;
+    align-items: center;
+    background-color: @color-footer;
+    border-top: 1px solid #DEE5E7;
+    font-family: 'Source Sans Pro', sans-serif, Helvetica, Arial;
+    font-size: 14px;
+
+    padding: 15px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .logos {
+      
+    }
+
+    .links {
+      display: none;
+    }
+
+    .social-media {
+      display: none;
     }
 
   }
@@ -656,14 +717,14 @@
               .flex-column {
 
                 .cursor {
-  
+
                   &.cursor:hover {
                     cursor: pointer;
                     color: white;
                     opacity: 0.3;
                     background-image: linear-gradient(to right, #333333, #747272, #747272, #333333);
                   }
-  
+
                 }
 
               }
@@ -676,6 +737,84 @@
 
       }
 
+    }
+
+    footer {
+
+      .logos {
+
+      }
+
+      .links {
+        display: block;
+
+        a {
+          color: @color-links;
+          cursor: pointer;
+          text-decoration: none;
+        }
+  
+        >div {
+          flex: 1 0 auto;
+        }
+
+      }
+
+      .social-media {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 12px;
+        line-height: 2.5;
+
+        a {
+          border: 1px solid transparent;
+          border-radius: 2px;
+          height: 30px;
+          margin-right: 3px;
+          text-align: center;
+          width: 30px;
+
+          &.btn-twitter {
+            background-color: @color-twitter;
+            color: @color-blanco;
+          }
+
+          &.btn-facebook {
+            background-color: @color-facebook;
+            color: @color-blanco;
+          }
+
+          &.btn-youtube {
+            background-color: @color-youtube;
+            color: @color-blanco;
+          }
+
+          &.btn-linkedin {
+            background-color: @color-linkedin;
+            color: @color-blanco;
+          }
+
+          &.btn-instagram {
+            background-color: @color-instagram;
+            color: @color-blanco;
+          }
+
+          &.btn-pinterest {
+            background-color: @color-pinterest;
+            color: @color-blanco;
+          }
+
+          &.btn-android {
+            background-color: @color-android;
+            color: @color-blanco;
+          }
+
+          &.btn-apple {
+            background-color: @color-apple;
+            color: @color-negro;
+          }
+        }
+      }
     }
 
   }

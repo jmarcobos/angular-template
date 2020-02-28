@@ -3,16 +3,38 @@
     <div class="cabecera">
       <div class="flex-row">
         <div class="flex-item">
-          <img class="logo" src="assets/logo-universite.svg">
-          <button class="btn-white desktop" *ngIf="!buscadorBoxVisible"(click)="gestionBuscador('desktop')"><i class="fa fa-th"></i></button>
-          <button class="btn-white desktop" *ngIf="!buscadorBoxVisible" (click)="gestionBuscador('all')"><i class="fa fa-search"></i></button>
+          <div class="inicio">
+            <img class="logo" src="assets/logo-universite.svg">
+            <span class="tooltip">Ir al escritorio</span>
+          </div>
+          <button class="btn-white desktop" *ngIf="!buscadorBoxVisible"(click)="gestionBuscador('desktop')">
+            <i class="fa fa-th"></i><span class="tooltip">Aplicaciones</span>
+          </button>
+          <button class="btn-white desktop" *ngIf="!buscadorBoxVisible" (click)="gestionBuscador('all')">
+            <i class="fa fa-search"></i><span class="tooltip">Buscar aplicaciones...</span>
+          </button>
         </div>
         <div class="flex-item flex-end">
-          <img class="foto desktop" src="{{foto}}" />
-          <button class="btn-black mobile" (click)="gestionBuscador('desktop')"><i class="fa fa-th"></i></button>
-          <button class="btn-black"><i class="fa fa-bell"></i></button>
-          <button class="btn-black desktop"><i class="fa fa-power-off color-red"></i></button>
-          <button class="btn-black mobile" (click)="gestionMenu()"><i class="fa fa-bars"></i></button>
+          <div class="usuario">
+            <img class="foto desktop" src="{{foto}}" />
+            <span class="tooltip"><span *ngIf="configuracion">{{configuracion.NombrePersona}}</span></span>
+          </div>
+          <button class="btn-black mobile" (click)="gestionBuscador('desktop')">
+            <i class="fa fa-th"></i>
+            <span class="tooltip">Aplicaciones</span>
+          </button>
+          <button class="btn-black">
+            <i class="fa fa-bell"></i>
+            <span class="tooltip">Notificaciones</span>
+          </button>
+          <button class="btn-black desktop">
+            <i class="fa fa-power-off color-red"></i>
+            <span class="tooltip-corner">Cerrar sesión</span>
+          </button>
+          <button class="btn-black mobile" (click)="gestionMenu()">
+            <i class="fa fa-bars"></i>
+            <span class="tooltip-corner">Menú</span>
+          </button>
         </div>
       </div>
     </div>
