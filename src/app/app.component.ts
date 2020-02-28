@@ -9,9 +9,11 @@ import { InitialService } from './services/initial.service';
 export class AppComponent implements OnInit {
   
   public title = 'Universite';
-  public buscadorVisible: boolean;
-  public menuVisible: boolean;
-  public optionActiva: string;
+  public buscadorBoxVisible: boolean = false;
+  public buscadorTextVisible: boolean = false;
+  public menuBoxVisible: boolean = false;
+  public menuTextVisible: boolean = false;
+  public optionActiva: string = 'desktop';
   public aplicaciones: [];
   public appFiltradas: any;
   public escritorio: any;
@@ -22,32 +24,6 @@ export class AppComponent implements OnInit {
   constructor(private inicialService: InitialService) { }
 
   ngOnInit() {
-    this.buscadorVisible = false;
-    this.menuVisible = false;
-    this.optionActiva = 'desktop';
-    this.getDatosInicio();
-  }
-
-  gestionBuscador(option: string) {
-    this.buscadorVisible = !this.buscadorVisible;
-    if (option) {
-      this.gestionSidenav(option);
-    }
-  }
-
-  gestionMenu() {
-    this.menuVisible = !this.menuVisible;
-  }
-
-  gestionSidenav(option: string) {
-    this.optionActiva = option;
-  }
-
-  buscar(busqueda) {     
-    console.log(busqueda.target.value);
-  }
-
-  private getDatosInicio() {
     this.inicialService.getDatosInicio()
       .subscribe((response) => {
         this.aplicaciones = response[0];
@@ -58,6 +34,37 @@ export class AppComponent implements OnInit {
         this.foto = response [3];
         console.log(response);
       });
+  }
+
+  gestionBuscador(option: string) {
+    if (this.buscadorBoxVisible) {
+      this.buscadorTextVisible = !this.buscadorBoxVisible;
+      this.buscadorBoxVisible =  this.buscadorTextVisible
+    } else {
+      this.buscadorBoxVisible = !this.buscadorBoxVisible;
+      setTimeout(() => { this.buscadorTextVisible = this.buscadorBoxVisible }, 500);
+    }
+    if (option) {
+      this.gestionSidenav(option);
+    }
+  }
+
+  gestionMenu() {
+    if (this.menuBoxVisible) {
+      this.menuTextVisible = !this.menuBoxVisible;
+      this.menuBoxVisible =  this.menuTextVisible
+    } else {
+      this.menuBoxVisible = !this.menuBoxVisible;
+      setTimeout(() => { this.menuTextVisible = this.menuBoxVisible }, 300);
+    }
+  }
+
+  gestionSidenav(option: string) {
+    this.optionActiva = option;
+  }
+
+  buscar(busqueda) {     
+    console.log(busqueda.target.value);
   }
 
 }
