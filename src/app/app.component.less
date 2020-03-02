@@ -298,6 +298,7 @@
       -o-transition: all linear 0.5s;
       -webkit-transition: all linear 0.5s;
       transition: all linear 0.5s;
+      z-index: 2;
 
       &.open {
         width: 100%;
@@ -624,6 +625,7 @@
     border-top: 1px solid #DEE5E7;
     font-family: 'Source Sans Pro', sans-serif, Helvetica, Arial;
     font-size: 14px;
+    z-index: 0;
 
     .flex-row {
       display: flex;
@@ -741,6 +743,7 @@
         background: rgba(0, 0, 0, 0.5);
         cursor: pointer;
         opacity: 100;
+        z-index: 1;
       }
 
       .buscador {
