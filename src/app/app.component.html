@@ -90,19 +90,20 @@
         </div>
         <div class="flex-item" *ngIf="optionActiva == 'all'">
           <div class="scrollable">
-            <div class="flex-column" *ngFor="let item of aplicaciones">
-              <div class="flex-item">
-                <div class="headAmbito">
-                  <span class="headColor" [ngStyle]="{'background-color': item.Color}"></span>
-                  <span class="headTitle">{{item.Categoria.toUpperCase()}}</span>
-                </div>
+            <div class="flex-column">
+               <div class="flex-item" *ngFor="let item of aplicaciones">
+                  <div class="categoria">
+                    <div class="titulo">
+                      <div class="color" [ngStyle]="{'background-color': item.Color}"></div>
+                      {{item.Categoria.toUpperCase()}}
+                      <div class="ver">Ver categoría</div>
+                    </div>
+                    <div class="aplicacion" *ngFor="let app of item.Aplicaciones">
+                      <i class="icono {{app.Icono}}"></i><span class="title">{{app.Titulo}}</span>             
+                    </div>
+                  </div>
               </div>
-              <div class="flex-item cursor" *ngFor="let app of item.Aplicaciones">
-                <div class="aplicacion">
-                  <i class="icono {{app.Icono}}"></i><span class="title">{{app.Titulo}}</span>             
-                </div>
-              </div>
-            </div>
+            </div> 
           </div>
         </div>
       </div>
