@@ -96,10 +96,13 @@
                     <div class="titulo">
                       <div class="color" [ngStyle]="{'background-color': item.Color}"></div>
                       {{item.Categoria.toUpperCase()}}
-                      <div class="ver">Ver categoría</div>
+                      <div class="ver">Ver categoría <span class="tooltip">Ver categoría</span></div>
                     </div>
                     <div class="aplicacion" *ngFor="let app of item.Aplicaciones">
-                      <i class="icono {{app.Icono}}"></i><span class="title">{{app.Titulo}}</span>             
+                      <i class="icono {{app.Icono}}"></i>
+                      <span class="titulo">{{app.Titulo}}
+                        <span class="tooltip">{{app.Descripcion}}</span>
+                      </span>                                  
                     </div>
                   </div>
               </div>
@@ -138,28 +141,44 @@
       <div class="flex-item-3">
         <div class="flex-row">
           <div class="flex-item">
-            <a target="_blank" href="http://twitter.com/UniversidadMH" aria-label="Twitter" class="btn-twitter"><span class="tooltip">Twitter</span><i class="fa fa-twitter fa-lg"></i></a>
+            <a target="_blank" href="http://twitter.com/UniversidadMH" aria-label="Twitter" class="btn-twitter">
+              <span class="tooltip">Twitter</span><i class="fa fa-twitter fa-lg"></i>
+            </a>
           </div>
           <div class="flex-item">
-            <a target="_blank" href="https://www.facebook.com/UniversidadMiguelHernandezElche" aria-label="Facebook" class="btn-facebook"><span class="tooltip">Facebook</span><i class="fa fa-facebook fa-lg"></i></a>
+            <a target="_blank" href="https://www.facebook.com/UniversidadMiguelHernandezElche" aria-label="Facebook" class="btn-facebook">
+              <span class="tooltip">Facebook</span><i class="fa fa-facebook fa-lg"></i>
+            </a>
           </div>
           <div class="flex-item">
-            <a target="_blank" href="http://youtube.umh.es/" aria-label="Youtube" class="btn-youtube"><span class="tooltip">Youtube</span><i class="fa fa-youtube fa-lg"></i></a>
+            <a target="_blank" href="http://youtube.umh.es/" aria-label="Youtube" class="btn-youtube">
+              <span class="tooltip">Youtube</span><i class="fa fa-youtube fa-lg"></i>
+            </a>
           </div>
           <div class="flex-item">
-            <a target="_blank" href="http://es.linkedin.com/edu/universidad-miguel-hern%C3%A1ndez-de-elche-12237" aria-label="Linkedin" class="btn-linkedin"><span class="tooltip">LinkedIn</span><i class="fa fa-linkedin fa-lg"></i></a>
+            <a target="_blank" href="http://es.linkedin.com/edu/universidad-miguel-hern%C3%A1ndez-de-elche-12237" aria-label="Linkedin" class="btn-linkedin">
+              <span class="tooltip">LinkedIn</span><i class="fa fa-linkedin fa-lg"></i>
+            </a>
           </div>
           <div class="flex-item">
-            <a target="_blank" href="http://instagram.com/universidadmh#" aria-label="Instagram" class="btn-instagram"><span class="tooltip">Instagram</span><i class="fa fa-instagram fa-lg"></i></a>
+            <a target="_blank" href="http://instagram.com/universidadmh#" aria-label="Instagram" class="btn-instagram">
+              <span class="tooltip">Instagram</span><i class="fa fa-instagram fa-lg"></i>
+            </a>
           </div>
           <div class="flex-item">
-            <a target="_blank" href="http://es.pinterest.com/universidadmh/" aria-label="Pinterest" class="btn-pinterest"><span class="tooltip">Pinterest</span><i class="fa fa-pinterest  fa-lg"></i></a>
+            <a target="_blank" href="http://es.pinterest.com/universidadmh/" aria-label="Pinterest" class="btn-pinterest">
+              <span class="tooltip">Pinterest</span><i class="fa fa-pinterest  fa-lg"></i>
+            </a>
           </div>
           <div class="flex-item">
-            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.umh.umh" aria-label="Android" class="btn-android"><span class="tooltip">Android</span><i class="fa fa-android fa-lg"></i></a>
+            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.umh.umh" aria-label="Android" class="btn-android">
+              <span class="tooltip">Android</span><i class="fa fa-android fa-lg"></i>
+            </a>
           </div>
           <div class="flex-item">
-            <a target="_blank" href="https://itunes.apple.com/es/app/umhapp/id807439885?mt=8" aria-label="Apple" class="btn-apple"><span class="tooltip">Apple</span><i class="fa fa-apple fa-lg"></i></a>
+            <a target="_blank" href="https://itunes.apple.com/es/app/umhapp/id807439885?mt=8" aria-label="Apple" class="btn-apple">
+              <span class="tooltip">Apple</span><i class="fa fa-apple fa-lg"></i>
+            </a>
           </div>
         </div>
       </div>
