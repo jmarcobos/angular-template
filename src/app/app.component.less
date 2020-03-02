@@ -616,7 +616,7 @@
   footer {
 
     flex-shrink: 0;
-    height: 80px;
+    min-height: 80px;
     width: 100%;
     padding: 15px;    
     align-items: center;
@@ -892,58 +892,93 @@
           flex: 1;
           display: block;
   
-          .content {
+          .flex-row {
+
             display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
             justify-content: flex-end;
             font-size: 12px;
             line-height: 2.5;
-    
-            a {
-              border: 1px solid transparent;
-              border-radius: 2px;
-              height: 30px;
-              margin-right: 3px;
-              text-align: center;
-              width: 30px;
-    
-              &.btn-twitter {
-                background-color: @color-twitter;
-                color: @color-blanco;
-              }
-    
-              &.btn-facebook {
-                background-color: @color-facebook;
-                color: @color-blanco;
-              }
-    
-              &.btn-youtube {
-                background-color: @color-youtube;
-                color: @color-blanco;
-              }
-    
-              &.btn-linkedin {
-                background-color: @color-linkedin;
-                color: @color-blanco;
-              }
-    
-              &.btn-instagram {
-                background-color: @color-instagram;
-                color: @color-blanco;
-              }
-    
-              &.btn-pinterest {
-                background-color: @color-pinterest;
-                color: @color-blanco;
-              }
-    
-              &.btn-android {
-                background-color: @color-android;
-                color: @color-blanco;
-              }
-    
-              &.btn-apple {
-                background-color: @color-apple;
-                color: @color-negro;
+
+            .flex-item {
+
+              display: flex;
+              flex: 0;
+
+              a {
+
+                border: 1px solid transparent;
+                border-radius: 2px;
+                height: 30px;
+                margin-right: 3px;
+                text-align: center;
+                width: 30px;
+                position: relative;
+      
+                &.btn-twitter {
+                  background-color: @color-twitter;
+                  color: @color-blanco;
+                }
+      
+                &.btn-facebook {
+                  background-color: @color-facebook;
+                  color: @color-blanco;
+                }
+      
+                &.btn-youtube {
+                  background-color: @color-youtube;
+                  color: @color-blanco;
+                }
+      
+                &.btn-linkedin {
+                  background-color: @color-linkedin;
+                  color: @color-blanco;
+                }
+      
+                &.btn-instagram {
+                  background-color: @color-instagram;
+                  color: @color-blanco;
+                }
+      
+                &.btn-pinterest {
+                  background-color: @color-pinterest;
+                  color: @color-blanco;
+                }
+      
+                &.btn-android {
+                  background-color: @color-android;
+                  color: @color-blanco;
+                }
+      
+                &.btn-apple {
+                  background-color: @color-apple;
+                  color: @color-negro;
+                }
+
+                .tooltip {
+                  visibility: hidden;
+                  width: 230%;
+                  background-color: black;
+                  color: #fff;
+                  text-align: center;
+                  padding: 5px 5px;
+                  border-radius: 6px;
+                  font-size: 11px;
+                  position: absolute;
+                  top: -42px;
+                  left: calc(-60%);
+                  z-index: 1;
+                }
+  
+                &:hover {
+  
+                  .tooltip {
+                    visibility: visible;
+                  }
+  
+                }
+  
               }
 
             }
