@@ -322,20 +322,49 @@
             padding: 0 20px;
           }
 
-          .btn-grey {
+          .btn-position {
 
             top: 0;
             right: 0;
             position: absolute;
-            font-size: 100%;
-            font-family: inherit;
-            border: 0;
-            padding: 14.5px 20px;
-            background-color: #333333;
-            color: white;
 
-            &.btn-grey:active {
-              outline: 0;
+            .btn-grey {
+
+              font-size: 100%;
+              font-family: inherit;
+              border: 0;
+              padding: 14.5px 20px;
+              background-color: #333333;
+              color: white;
+              position: relative;
+
+              &.btn-grey:active {
+                outline: 0;
+              }
+
+              .tooltip {
+                visibility: hidden;
+                width: 96%;
+                background-color: black;
+                color: #fff;
+                text-align: center;
+                padding: 5px 5px;
+                border-radius: 6px;
+                font-size: 11px;
+                position: absolute;
+                top: 52px;
+                left: calc(1%);
+                z-index: 1;
+              }
+  
+              &.btn-grey:hover {
+  
+                .tooltip {
+                  visibility: visible;
+                }
+  
+              }
+
             }
 
           }
@@ -351,6 +380,30 @@
             margin: 0 0 20px 20px;
             padding: 10px;
             color: white;
+            position: relative;
+
+            .tooltip {
+              visibility: hidden;
+              width: 80%;
+              background-color: black;
+              color: #fff;
+              text-align: center;
+              padding: 5px 5px;
+              border-radius: 6px;
+              font-size: 11px;
+              position: absolute;
+              top: 45px;
+              left: calc(10%);
+              z-index: 1;
+            }
+
+            &.option:hover {
+
+              .tooltip {
+                visibility: visible;
+              }
+
+            }
 
             .options {
               position: relative;
@@ -520,7 +573,38 @@
         }
 
         .bkgd-black {
+
           background-color: black;
+
+          .inicio {
+
+            position: relative;
+
+            .tooltip {
+              visibility: hidden;
+              width: 120px;
+              background-color: black;
+              color: #fff;
+              text-align: center;
+              padding: 5px 5px;
+              border-radius: 6px;
+              font-size: 11px;
+              position: absolute;
+              top: 52px;
+              left: 45px;
+              z-index: 1;
+            }
+
+            &.inicio:hover {
+
+              .tooltip {
+                visibility: visible;
+              }
+
+            }
+
+          }
+
         }
 
       }
@@ -533,32 +617,33 @@
 
     flex-shrink: 0;
     height: 80px;
-    
-    align-content: flex-start;
+    width: 100%;
+    padding: 15px;    
     align-items: center;
     background-color: @color-footer;
     border-top: 1px solid #DEE5E7;
     font-family: 'Source Sans Pro', sans-serif, Helvetica, Arial;
     font-size: 14px;
 
-    padding: 15px;
+    .flex-row {
+      display: flex;
+      flex-direction: row;
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    .logos {
+      .flex-item-1 {
+        flex: 1;
+      }
+  
+      .flex-item-2 {
+        flex: 1;
+        display: none;
+      }
+  
+      .flex-item-3 {
+        flex: 1;
+        display: none;
+      }
       
-    }
-
-    .links {
-      display: none;
-    }
-
-    .social-media {
-      display: none;
-    }
+    }  
 
   }
 
@@ -740,81 +825,108 @@
     }
 
     footer {
-
-      .logos {
-
-      }
-
-      .links {
-        display: block;
-
-        a {
-          color: @color-links;
-          cursor: pointer;
-          text-decoration: none;
-        }
   
-        >div {
-          flex: 1 0 auto;
-        }
-
-      }
-
-      .social-media {
+      .flex-row {
         display: flex;
-        justify-content: flex-end;
-        font-size: 12px;
-        line-height: 2.5;
+        flex-direction: row;
 
-        a {
-          border: 1px solid transparent;
-          border-radius: 2px;
-          height: 30px;
-          margin-right: 3px;
-          text-align: center;
-          width: 30px;
+        .flex-item-1 {
+          flex: 1;
+          min-width: 210px;
+        } 
+        
+        .flex-item-2 {
+          flex: 2;
+          display: block;
 
-          &.btn-twitter {
-            background-color: @color-twitter;
-            color: @color-blanco;
+          .flex-row {
+            display: flex;
+            flex-direction :row;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .flex-item {
+              flex: 0 1 auto;
+              padding-left: 3px;
+            }
+
           }
-
-          &.btn-facebook {
-            background-color: @color-facebook;
-            color: @color-blanco;
+  
+          a {
+            color: @color-links;
+            cursor: pointer;
+            text-decoration: none;
           }
-
-          &.btn-youtube {
-            background-color: @color-youtube;
-            color: @color-blanco;
-          }
-
-          &.btn-linkedin {
-            background-color: @color-linkedin;
-            color: @color-blanco;
-          }
-
-          &.btn-instagram {
-            background-color: @color-instagram;
-            color: @color-blanco;
-          }
-
-          &.btn-pinterest {
-            background-color: @color-pinterest;
-            color: @color-blanco;
-          }
-
-          &.btn-android {
-            background-color: @color-android;
-            color: @color-blanco;
-          }
-
-          &.btn-apple {
-            background-color: @color-apple;
-            color: @color-negro;
-          }
+  
         }
+    
+        .flex-item-3 {
+          
+          flex: 1;
+          display: block;
+  
+          .content {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 12px;
+            line-height: 2.5;
+    
+            a {
+              border: 1px solid transparent;
+              border-radius: 2px;
+              height: 30px;
+              margin-right: 3px;
+              text-align: center;
+              width: 30px;
+    
+              &.btn-twitter {
+                background-color: @color-twitter;
+                color: @color-blanco;
+              }
+    
+              &.btn-facebook {
+                background-color: @color-facebook;
+                color: @color-blanco;
+              }
+    
+              &.btn-youtube {
+                background-color: @color-youtube;
+                color: @color-blanco;
+              }
+    
+              &.btn-linkedin {
+                background-color: @color-linkedin;
+                color: @color-blanco;
+              }
+    
+              &.btn-instagram {
+                background-color: @color-instagram;
+                color: @color-blanco;
+              }
+    
+              &.btn-pinterest {
+                background-color: @color-pinterest;
+                color: @color-blanco;
+              }
+    
+              &.btn-android {
+                background-color: @color-android;
+                color: @color-blanco;
+              }
+    
+              &.btn-apple {
+                background-color: @color-apple;
+                color: @color-negro;
+              }
+
+            }
+
+          }
+
+        }
+
       }
+  
     }
 
   }

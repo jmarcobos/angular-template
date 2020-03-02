@@ -49,8 +49,16 @@
     <div class="buscador" [ngClass]="buscadorBoxVisible ? 'open' : 'close'">
       <div class="flex-column" *ngIf="buscadorTextVisible">
         <div class="flex-item bkgd-black">
-          <img class="logo" src="assets/logo-universite.svg">
-          <button class="btn-grey" (click)="gestionBuscador()"><i class="fa fa-times" (click)="gestionBuscador()"></i></button>
+          <div class="inicio">
+            <img class="logo" src="assets/logo-universite.svg">
+            <span class="tooltip">Ir al escritorio</span>
+          </div>
+          <div class="btn-position">
+            <button class="btn-grey" (click)="gestionBuscador()">
+              <i class="fa fa-times" (click)="gestionBuscador()"></i>
+              <span class="tooltip">Cerrar</span>
+            </button>
+          </div>
         </div>
         <div class="flex-item">
           <input type="text" class="buscar" placeholder="Buscar en todas mis aplicaciones" (click)="gestionSidenav('all')" (keyup)="buscar($event)">
@@ -58,9 +66,11 @@
         <div class="flex-item">
           <div class="option">
             <span [ngClass]="optionActiva == 'desktop' ? 'options-active' : 'options'" (click)="gestionSidenav('desktop')">ESCRITORIO ({{totalEscritorio}})</span>
+            <span class="tooltip">Escritorio</span>
           </div>
           <div class="option">
             <span [ngClass]="optionActiva == 'all' ? 'options-active' : 'options'" (click)="gestionSidenav('all')">TODAS</span>
+            <span class="tooltip">Todas</span>
           </div>
         </div>
         <div class="flex-item" *ngIf="optionActiva == 'desktop'">
@@ -102,30 +112,40 @@
     <router-outlet></router-outlet>
   </main>
   <footer>
-    <div class="logos">
-      <img src="assets/candado.svg" />
-      <img src="assets/logo-footer-universite.svg" />
-    </div>
-    <div class="links">
-      <a href="#">Aviso legal</a>
-      <span> | </span>
-      <a href="#">Teléfonos de emergencia</a>
-      <span> | </span>
-      <a href="#">Soporte</a>
-      <span> | </span>
-      <a href="#">Mapa de asplicaciones</a>
-      <br>
-      <a href="#">Universidad Miguel Hernández</a>
-    </div>
-    <div class="social-media">
-      <a target="_blank" href="http://twitter.com/UniversidadMH" aria-label="Twitter" class="btn-twitter"> <i class="fa fa-twitter fa-lg"></i></a>
-      <a target="_blank" href="https://www.facebook.com/UniversidadMiguelHernandezElche" aria-label="Facebook" class="btn-facebook"> <i class="fa fa-facebook fa-lg"></i></a>
-      <a target="_blank" href="http://youtube.umh.es/" aria-label="Youtube" class="btn-youtube"> <i class="fa fa-youtube fa-lg"></i></a>
-      <a target="_blank" href="http://es.linkedin.com/edu/universidad-miguel-hern%C3%A1ndez-de-elche-12237" aria-label="Linkedin" class="btn-linkedin"> <i class="fa fa-linkedin fa-lg"></i></a>
-      <a target="_blank" href="http://instagram.com/universidadmh#" aria-label="Instagram" class="btn-instagram"> <i class="fa fa-instagram fa-lg"></i></a>
-      <a target="_blank" href="http://es.pinterest.com/universidadmh/" aria-label="Pinterest" class="btn-pinterest"> <i class="fa fa-pinterest  fa-lg"></i></a>
-      <a target="_blank" href="https://play.google.com/store/apps/details?id=com.umh.umh" aria-label="Android" class="btn-android"> <i class="fa fa-android fa-lg"></i></a>
-      <a target="_blank" href="https://itunes.apple.com/es/app/umhapp/id807439885?mt=8" aria-label="Apple" class="btn-apple"> <i class="fa fa-apple fa-lg"></i></a>
+    <div class="flex-row">
+      <div class="flex-item-1">
+        <img src="assets/candado.svg" />
+        <img src="assets/logo-footer-universite.svg" />
+      </div>
+      <div class="flex-item-2" style="text-align: center;">
+        <div class="flex-row" style="text-align: center;">
+          <div class="flex-item">
+            <a href="#">Aviso legal</a><span> |</span>
+          </div>
+          <div class="flex-item">
+            <a href="#">Teléfonos de emergencia</a><span> |</span>
+          </div>
+          <div class="flex-item">
+            <a href="#">Soporte</a><span> |</span>
+          </div>
+          <div class="flex-item">
+            <a href="#">Mapa de asplicaciones</a>
+          </div>
+        </div>
+        <a href="#">Universidad Miguel Hernández</a>
+      </div>
+      <div class="flex-item-3">
+        <div class="content">
+          <a target="_blank" href="http://twitter.com/UniversidadMH" aria-label="Twitter" class="btn-twitter"> <i class="fa fa-twitter fa-lg"></i></a>
+          <a target="_blank" href="https://www.facebook.com/UniversidadMiguelHernandezElche" aria-label="Facebook" class="btn-facebook"> <i class="fa fa-facebook fa-lg"></i></a>
+          <a target="_blank" href="http://youtube.umh.es/" aria-label="Youtube" class="btn-youtube"> <i class="fa fa-youtube fa-lg"></i></a>
+          <a target="_blank" href="http://es.linkedin.com/edu/universidad-miguel-hern%C3%A1ndez-de-elche-12237" aria-label="Linkedin" class="btn-linkedin"> <i class="fa fa-linkedin fa-lg"></i></a>
+          <a target="_blank" href="http://instagram.com/universidadmh#" aria-label="Instagram" class="btn-instagram"> <i class="fa fa-instagram fa-lg"></i></a>
+          <a target="_blank" href="http://es.pinterest.com/universidadmh/" aria-label="Pinterest" class="btn-pinterest"> <i class="fa fa-pinterest  fa-lg"></i></a>
+          <a target="_blank" href="https://play.google.com/store/apps/details?id=com.umh.umh" aria-label="Android" class="btn-android"> <i class="fa fa-android fa-lg"></i></a>
+          <a target="_blank" href="https://itunes.apple.com/es/app/umhapp/id807439885?mt=8" aria-label="Apple" class="btn-apple"> <i class="fa fa-apple fa-lg"></i></a>
+        </div>
+      </div>
     </div>
   </footer>
 </div>
