@@ -96,12 +96,17 @@
                     <div class="titulo">
                       <div class="color" [ngStyle]="{'background-color': item.Color}"></div>
                       {{item.Categoria.toUpperCase()}}
-                      <div class="ver">Ver categoría <span class="tooltip">Ver categoría</span></div>
+                      <div class="ver"><i class="fa fa-graduation-cap"></i>Ver categoría<span class="tooltip">Ver categoría</span></div>
                     </div>
                     <div class="aplicacion" *ngFor="let app of item.Aplicaciones">
                       <i class="icono {{app.Icono}}"></i>
-                      <span class="titulo">{{app.Titulo}}<span class="tooltip">{{app.Descripcion}}</span>
-                      </span>                                  
+                      <span class="titulo">{{app.Titulo}}<span class="tooltip">{{app.Descripcion}}</span></span>
+                      <span class="add">
+                        <span class="texto">
+                        <i class="fa fa-plus-circle fa-lg"></i>
+                          <span class="tooltip">Añadir al escritorio</span>
+                        </span>
+                      </span>
                     </div>
                   </div>
               </div>
